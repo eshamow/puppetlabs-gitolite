@@ -20,4 +20,11 @@ class gitolite {
     managehome => true,
   }
 
+  exec { 'generate_gitolite_key':
+    command => 'ssh-keygen -t rsa -N "" -f /home/git/.ssh/id_rsa',
+    path    => '/usr/bin',
+    user    => 'git',
+    creates => '/home/git/.ssh/id_rsa',
+  }
+
 }
